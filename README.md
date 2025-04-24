@@ -19,8 +19,8 @@ Built with:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/room-booking-app.git
-cd room-booking-app
+git clone https://github.com/DankoFox/SCAMS.git
+cd SCAMS
 ```
 
 ---
