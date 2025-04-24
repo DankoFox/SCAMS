@@ -1,54 +1,102 @@
-# React + TypeScript + Vite
+# 📚  Smart Campus System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a web-based application for managing classroom and room bookings across various university buildings. Users — including students, lecturers, and staff — can:
 
-Currently, two official plugins are available:
+- View building and room information
+- Check room availability by schedule
+- Book available rooms (for authorized users)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Built with:
 
-## Expanding the ESLint configuration
+- **React** + **TypeScript** using **Vite**
+- **Supabase** (authentication and database)
+- **Bun** or **npm** for package management
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🚀 Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/room-booking-app.git
+cd room-booking-app
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 2. Install Dependencies
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+You can use either **Bun** or **npm**:
+
+#### Using Bun (recommended for speed):
+```bash
+bun install
 ```
+
+#### Using npm:
+```bash
+npm install
+```
+
+---
+
+### 3. Configure Environment Variables
+
+Create a `.env.local` file in the root directory:
+
+```bash
+touch .env.local
+```
+
+Add your **Supabase project credentials**:
+
+```env
+VITE_SUPABASE_URL=your-supabase-url
+VITE_SUPABASE_ANON_KEY=your-anon-key
+```
+
+> These values are found in your [Supabase Dashboard](https://app.supabase.com) under **Project Settings → API**.
+
+---
+
+### 4. Run the Development Server
+
+#### With Bun:
+```bash
+bun dev
+```
+
+#### With npm:
+```bash
+npm run dev
+```
+
+Open your browser and navigate to:
+
+```
+http://localhost:5173
+```
+
+---
+
+## 📁 Project Structure
+
+```
+├── public/                   # Static files
+└── src/
+    ├── assets/              # Static assets (e.g., images)
+    ├── components/          # Reusable UI components (e.g., NavBar)
+    ├── pages/               # Route components (Home, Login, etc.)
+    ├── supabaseClient.ts    # Supabase initialization
+    └── App.tsx              # App entry point
+```
+
+---
+
+## 🔐 Authentication & Authorization
+
+- Authentication is handled via Supabase.
+- Users must complete their profile before accessing the full functionality.
+- Role-based access (e.g., staff can book rooms) will be implemented progressively.
+
