@@ -37,6 +37,7 @@ bun install
 #### Using npm:
 ```bash
 npm install
+npm install react-bootstrap bootstrap
 ```
 
 ---
