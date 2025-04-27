@@ -1,12 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Andika:wght@400;700&display=swap');
 .nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 25px;
-    background-color: #f8f9fa;
+    background-color: #ffffff;
     border-bottom: 1px solid #dee2e6;
-    font-family: Arial, sans-serif;
-    color: #343a40;
+    color: rgb(113, 110, 151);
+    font-family: 'Andika', sans-serif;
+    height: 100px;
 }
 
 .leftSection {
@@ -16,14 +17,20 @@
 }
 
 .logo {
-    width: 30px;
-    height: 30px;
-    display: block;
+    width: 84px;
+    height: 84px;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    padding-bottom: 30px;
+    font-size: xx-large;
 }
 
 .appName {
     font-weight: bold;
-    font-size: 1.1rem;
+    font-family: 'Andika', sans-serif;
+    font-size:xx-large;
+    color:#5D5A88;
 }
 
 .rightSection {
@@ -43,6 +50,7 @@
     padding: 5px;
     border-radius: 4px;
     transition: background-color 0.2s ease;
+    font-size: larger;
 }
 
 .navItem:hover,
@@ -54,7 +62,7 @@
     background: none;
     border: none;
     font-family: inherit;
-    font-size: inherit;
+    font-size: larger;
     margin-right: 10px;
 }
 
@@ -63,4 +71,8 @@
     margin: 0 5px;
     cursor: default;
     user-select: none;
+}
+
+.notificationIcon {
+    padding-right: 20px;
 }
