@@ -17,13 +17,22 @@ type Room = {
 	type: string | null;
 };
 
+type Course = {
+	id: string;
+	course_code: string;
+	course_name: string;
+};
+
 export default function Home() {
 	const [name, setName] = useState<string | null>(null);
+	const [role, setRole] = useState<string | null>(null);
 	const [buildings, setBuildings] = useState<Building[]>([]);
 	const [expanded, setExpanded] = useState<{ [key: string]: boolean }>({});
 	const [roomsByBuilding, setRoomsByBuilding] = useState<{
 		[key: string]: Room[];
 	}>({});
+	const [courses, setCourses] = useState<Course[]>([]);
+
 	const navigate = useNavigate();
 
 	useEffect(() => {
@@ -40,7 +49,7 @@ export default function Home() {
 			const { user } = session;
 			const { data, error } = await supabase
 				.from("users")
-				.select("name")
+				.select("name, role")
 				.eq("id", user.id)
 				.single();
 
@@ -50,6 +59,11 @@ export default function Home() {
 				navigate("/complete-profile");
 			} else {
 				setName(data.name);
+				setRole(data.role);
+
+				if (data.role === "lecturer") {
+					fetchLecturerCourses(user.id);
+				}
 			}
 		};
 
@@ -65,6 +79,33 @@ export default function Home() {
 
 		if (!error && data) {
 			setBuildings(data);
+		}
+	};
+
+	const fetchLecturerCourses = async (lecturerId: string) => {
+		const { data, error } = await supabase
+			.from("course_lecturers")
+			.select(`
+				id,
+				group_id,
+				course_groups (
+					course_id,
+					courses (
+						id,
+						course_code,
+						course_name
+					)
+				)
+			`)
+			.eq("lecturer_id", lecturerId);
+
+		if (!error && data) {
+			const coursesData: Course[] = data.map((item: any) => ({
+				id: item.course_groups.courses.id,
+				course_code: item.course_groups.courses.course_code,
+				course_name: item.course_groups.courses.course_name,
+			}));
+			setCourses(coursesData);
 		}
 	};
 
@@ -86,7 +127,7 @@ export default function Home() {
 	};
 
 	const goToRoomSchedule = (roomId: string) => {
-		navigate(`/room/${roomId}`); // Make sure you have this route defined
+		navigate(`/room/${roomId}`);
 	};
 
 	return (
@@ -95,8 +136,33 @@ export default function Home() {
 
 			<div style={{ padding: 20 }}>
 				<h1>Welcome, {name || "Loading..."}</h1>
+				{role && (
+					<p>
+						<strong>Role:</strong>{" "}
+						{role.charAt(0).toUpperCase() + role.slice(1)}
+					</p>
+				)}
 
-				<h2>Buildings & Rooms</h2>
+				{/* If user is lecturer, show courses */}
+				{role === "lecturer" && (
+					<div style={{ marginTop: 20 }}>
+						<h2>Courses you are teaching</h2>
+						{courses.length > 0 ? (
+							<ul>
+								{courses.map((course) => (
+									<li key={course.id}>
+										<strong>{course.course_code}</strong>: {course.course_name}
+									</li>
+								))}
+							</ul>
+						) : (
+							<p>No courses assigned yet.</p>
+						)}
+					</div>
+				)}
+
+				{/* Building list */}
+				<h2 style={{ marginTop: 30 }}>Buildings & Rooms</h2>
 				{buildings.map((building) => (
 					<div key={building.id} style={{ marginBottom: 10 }}>
 						<div
