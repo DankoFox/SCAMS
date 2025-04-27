@@ -100,7 +100,6 @@ const TaskBar: React.FC = () => {
 
         <span style={separatorStyle}>|</span>
 
-        {}
         <a
           href="#campus-dashboard"
           style={navItemStyle}
@@ -112,18 +111,20 @@ const TaskBar: React.FC = () => {
 
         <span style={separatorStyle}>|</span>
 
-        {}
         <button
           onClick={handleExit}
           style={{ ...navButtonStyle, marginRight: "10px" }}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          {}
           <FontAwesomeIcon icon={faSignOutAlt} />
           <span>Exit</span>
         </button>
-        <FontAwesomeIcon icon={faBell} size="lg" />
+
+        {/* Optional: Wrap icon for easier styling/spacing */}
+        <span className={styles.notificationIcon}>
+          <FontAwesomeIcon icon={faBell} size="lg" />
+        </span>
       </div>
     </nav>
   );
