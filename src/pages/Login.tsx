@@ -45,9 +45,7 @@ export default function Login() {
 			<br />
 			<button onClick={handleLogin}>Login</button>
 			{errorMsg && <p style={{ color: "red" }}>{errorMsg}</p>}
-			<p>
-				Don't have an account? <a href="/register">Register</a>
-			</p>
+			<p>Don't have an account? Please contact OISP Office</p>
 		</div>
 	);
 }

@@ -33,7 +33,7 @@ export default function Home() {
 			} = await supabase.auth.getSession();
 
 			if (!session) {
-				navigate("/register");
+				navigate("/login");
 				return;
 			}
 
@@ -45,7 +45,7 @@ export default function Home() {
 				.single();
 
 			if (error || !data) {
-				navigate("/register");
+				navigate("/login");
 			} else if (!data.name) {
 				navigate("/complete-profile");
 			} else {

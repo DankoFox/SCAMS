@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 export default function CompleteProfile() {
 	const [name, setName] = useState("");
-	const [role, setRole] = useState("student");
 	const [errorMsg, setErrorMsg] = useState("");
 	const navigate = useNavigate();
 
@@ -16,7 +15,7 @@ export default function CompleteProfile() {
 
 		const { error } = await supabase
 			.from("users")
-			.update({ name, role })
+			.update({ name })
 			.eq("id", userData.user.id);
 
 		if (error) return setErrorMsg(error.message);
@@ -29,12 +28,7 @@ export default function CompleteProfile() {
 			<h2>Complete Your Profile</h2>
 			<input placeholder="Name" onChange={(e) => setName(e.target.value)} />
 			<br />
-			<select value={role} onChange={(e) => setRole(e.target.value)}>
-				<option value="lecturer">Lecturer</option>
-				<option value="staff">Staff</option>
-				<option value="guest">Guest</option>
-				<option value="security">Security</option>
-			</select>
+
 			<br />
 			<button onClick={handleUpdate}>Save</button>
 			{errorMsg && <p style={{ color: "red" }}>{errorMsg}</p>}

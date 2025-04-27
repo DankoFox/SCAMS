@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 export default function UpdateProfile() {
 	const [name, setName] = useState("");
-	const [role, setRole] = useState("");
 	const [errorMsg, setErrorMsg] = useState("");
 	const [loading, setLoading] = useState(true);
 	const navigate = useNavigate();
@@ -22,7 +21,7 @@ export default function UpdateProfile() {
 
 			const { data, error } = await supabase
 				.from("users")
-				.select("name, role")
+				.select("name")
 				.eq("id", userData.user.id)
 				.single();
 
@@ -30,7 +29,6 @@ export default function UpdateProfile() {
 				setErrorMsg("Failed to load user data");
 			} else {
 				setName(data.name || "");
-				setRole(data.role || "student");
 			}
 
 			setLoading(false);
@@ -47,7 +45,7 @@ export default function UpdateProfile() {
 
 		const { error } = await supabase
 			.from("users")
-			.update({ name, role })
+			.update({ name })
 			.eq("id", userData.user.id);
 
 		if (error) return setErrorMsg(error.message);
@@ -66,12 +64,7 @@ export default function UpdateProfile() {
 				onChange={(e) => setName(e.target.value)}
 			/>
 			<br />
-			<select value={role} onChange={(e) => setRole(e.target.value)}>
-				<option value="lecturer">Lecturer</option>
-				<option value="staff">Staff</option>
-				<option value="guest">Guest</option>
-				<option value="security">Security</option>
-			</select>
+
 			<br />
 			<button onClick={handleUpdate}>Save Changes</button>
 			{errorMsg && <p style={{ color: "red" }}>{errorMsg}</p>}
