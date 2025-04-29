@@ -5,29 +5,27 @@ import { useNavigate } from "react-router-dom";
 
 export default function NavBar() {
 	const [name, setName] = useState<string | null>(null);
+	const [role, setRole] = useState<string | null>(null);
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		const getUserName = async () => {
+		const getUserInfo = async () => {
 			const {
 				data: { session },
 			} = await supabase.auth.getSession();
-
 			if (!session) return;
 			const { user } = session;
-
 			const { data, error } = await supabase
 				.from("users")
-				.select("name")
+				.select("name, role")
 				.eq("id", user.id)
 				.single();
-
-			if (!error && data?.name) {
+			if (!error && data) {
 				setName(data.name);
+				setRole(data.role);
 			}
 		};
-
-		getUserName();
+		getUserInfo();
 	}, []);
 
 	const handleLogout = async () => {
@@ -37,6 +35,10 @@ export default function NavBar() {
 
 	const handleEdit = () => {
 		navigate("/update-profile");
+	};
+
+	const handleCreateBooking = () => {
+		navigate("/booking");
 	};
 
 	return (
@@ -52,6 +54,11 @@ export default function NavBar() {
 			<h3 style={{ margin: 0 }}>SCAMS</h3>
 			<div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
 				<span>{name ? `Hello, ${name}` : "Loading..."}</span>
+				{role === "lecturer" && (
+					<button onClick={handleCreateBooking} style={{ padding: "6px 12px" }}>
+						Create Booking
+					</button>
+				)}
 				<button onClick={handleEdit} style={{ padding: "6px 12px" }}>
 					Edit Profile
 				</button>
