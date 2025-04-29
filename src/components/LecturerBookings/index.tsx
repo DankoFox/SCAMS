@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../../supabaseClient";
-import { useNavigate } from "react-router-dom";
+import BookingModal from "../BookingModal";
 
 type Booking = {
 	id: string;
@@ -34,6 +34,10 @@ export default function LecturerBookings({
 	lecturerId,
 }: LecturerBookingsProps) {
 	const [bookings, setBookings] = useState<Booking[]>([]);
+	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [selectedBookingId, setSelectedBookingId] = useState<string | null>(
+		null,
+	);
 
 	const fetchBookings = async () => {
 		try {
@@ -119,11 +123,40 @@ export default function LecturerBookings({
 		return start > now ? "Incoming" : "Passed";
 	};
 
-	const navigate = useNavigate();
+	const handleEditBooking = (bookingId: string) => {
+		setSelectedBookingId(bookingId);
+		setIsModalOpen(true);
+	};
+
+	const handleCreateBooking = () => {
+		setSelectedBookingId(null);
+		setIsModalOpen(true);
+	};
 
 	return (
 		<div style={{ marginTop: 20 }}>
-			<h2>Your Bookings</h2>
+			<div
+				style={{
+					display: "flex",
+					justifyContent: "space-between",
+					alignItems: "center",
+				}}
+			>
+				<h2>Your Bookings</h2>
+				<button
+					onClick={handleCreateBooking}
+					style={{
+						padding: "8px 16px",
+						backgroundColor: "#4CAF50",
+						color: "white",
+						border: "none",
+						borderRadius: "4px",
+						cursor: "pointer",
+					}}
+				>
+					Create New Booking
+				</button>
+			</div>
 
 			{bookings.length === 0 ? (
 				<p>No bookings found.</p>
@@ -163,17 +196,48 @@ export default function LecturerBookings({
 								<td>{booking.course_group.group_code}</td>
 								<td>{checkStatus(booking.start_datetime)}</td>
 								<td>
-									<button
-										onClick={() => navigate(`/bookings/${booking.id}/edit`)}
-									>
-										Edit
-									</button>
+									{checkStatus(booking.start_datetime) === "Passed" ? (
+										<button
+											disabled
+											style={{
+												padding: "6px 12px",
+												backgroundColor: "#cccccc",
+												color: "#666666",
+												border: "none",
+												borderRadius: "4px",
+												cursor: "not-allowed",
+											}}
+										>
+											Edit
+										</button>
+									) : (
+										<button
+											onClick={() => handleEditBooking(booking.id)}
+											style={{
+												padding: "6px 12px",
+												backgroundColor: "#2196F3",
+												color: "white",
+												border: "none",
+												borderRadius: "4px",
+												cursor: "pointer",
+											}}
+										>
+											Edit
+										</button>
+									)}
 								</td>
 							</tr>
 						))}
 					</tbody>
 				</table>
 			)}
+
+			<BookingModal
+				isOpen={isModalOpen}
+				onClose={() => setIsModalOpen(false)}
+				bookingId={selectedBookingId}
+				onUpdateSuccess={fetchBookings}
+			/>
 		</div>
 	);
 }
