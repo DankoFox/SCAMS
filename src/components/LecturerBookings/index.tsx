@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "../../supabaseClient";
+import { useNavigate } from "react-router-dom";
 
 type Booking = {
 	id: string;
@@ -118,6 +119,8 @@ export default function LecturerBookings({
 		return start > now ? "Incoming" : "Passed";
 	};
 
+	const navigate = useNavigate();
+
 	return (
 		<div style={{ marginTop: 20 }}>
 			<h2>Your Bookings</h2>
@@ -160,7 +163,11 @@ export default function LecturerBookings({
 								<td>{booking.course_group.group_code}</td>
 								<td>{checkStatus(booking.start_datetime)}</td>
 								<td>
-									<button disabled>Edit</button>
+									<button
+										onClick={() => navigate(`/bookings/${booking.id}/edit`)}
+									>
+										Edit
+									</button>
 								</td>
 							</tr>
 						))}

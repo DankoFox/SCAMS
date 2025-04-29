@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import CompleteProfile from "./pages/CompleteProfile";
 import UpdateProfile from "./pages/UpdateProfile";
 import BookingPage from "./pages/Booking";
+import UpdateBookingPage from "./pages/UpdataBooking";
 
 function App() {
 	return (
@@ -15,6 +16,10 @@ function App() {
 				<Route path="/complete-profile" element={<CompleteProfile />} />
 				<Route path="/update-profile" element={<UpdateProfile />} />
 				<Route path="/booking" element={<BookingPage />} />
+				<Route
+					path="/bookings/:bookingId/edit"
+					element={<UpdateBookingPage />}
+				/>
 			</Routes>
 		</BrowserRouter>
 	);
