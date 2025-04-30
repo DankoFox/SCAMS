@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { supabase } from "../../supabaseClient";
 import { useNavigate } from "react-router-dom";
+import Footer from "../../components/Footer";
 
 
 export default function Login() {
@@ -49,6 +50,7 @@ export default function Login() {
         {errorMsg && <p style={{ color: "red" }}>{errorMsg}</p>}
         <p>Don't have an account? Please contact OISP Office</p>
       </div>
+      <Footer />
     </div>
   );
 }
