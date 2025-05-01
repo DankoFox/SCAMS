@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import CompleteProfile from "./pages/CompleteProfile";
 import UpdateProfile from "./pages/UpdateProfile";
+import RedirectLogin from "./pages/RedirectLogin";
 
 function App() {
 	return (
@@ -11,6 +12,7 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/login" element={<Login />} />
+				<Route path="/redirect-login" element={<RedirectLogin />} />
 				<Route path="/complete-profile" element={<CompleteProfile />} />
 				<Route path="/update-profile" element={<UpdateProfile />} />
 			</Routes>
