@@ -45,7 +45,7 @@ export default function Home() {
 				.single();
 
 			if (error || !data) {
-				navigate("/redirect-login");
+				navigate("/landing-page");
 			} else if (!data.name) {
 				navigate("/complete-profile");
 			} else {
