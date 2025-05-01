@@ -23,7 +23,7 @@ export default function RedirectLogin() {
           </button>
           <button
             className="redirect-btn"
-            onClick={() => navigate("/login?mode=admin")}
+            onClick={() => navigate("/login?mode=lecturer")}
             style={{marginTop: "20px"}}
           >
             Lecturers of BackKhoa
