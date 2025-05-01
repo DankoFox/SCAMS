@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Mulish', sans-serif;
+  background-color: #ffffff;
+}
+
+/* Hero Section */
+.home-hero {
+    position: relative;
+    width: 100%;
+    height: 100%; /* hoặc 100vh nếu bạn muốn ảnh full màn hình */
+    overflow: hidden;
+  }
+  
+  .home-hero-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ✅ đảm bảo chiều rộng luôn chiếm full, cắt ảnh nếu cần */
+    object-position: center top; /* ✅ focus vào phần trên của ảnh */
+  }
+  
+  
+  /* ✅ Dời phần text xuống 1/4 dưới của ảnh */
+  .home-hero-text {
+    position: absolute;
+    top: 75%; /* khoảng 3/4 chiều cao */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background-color: #595959;
+    padding: 20px 40px;
+    border-radius: 20px;
+    color: white;
+  }
+  
+
+.home-hero-text p {
+  font-size: 35px;
+  color: #fff;
+  margin: 0;
+}
+
+.home-hero-text h1 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #fff;
+  margin: 5px 0 0;
+  letter-spacing: 1px;
+}
+
+/* Intro Section */
+.home-intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F2F1FA;
+  padding: 50px 80px;
+}
+
+.home-intro-left img {
+  padding-left: 20px;
+  width: 80%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.home-intro-right {
+  max-width: 500px;
+}
+
+.home-intro-right h3 {
+  font-size: 30px;
+  font-weight: 600;
+  color: #5D5A88;
+  margin-bottom: 24px;
+}
+
+.home-intro-right p {
+  font-size: 20px;
+  color: #9795B5;
+  margin-bottom: 30px;
+}
+
+.home-login-button {
+  background-color: #5D5A88;
+  color: white;
+  height: 50px;
+  font-size: 14px;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0px 4px 15px rgba(90, 76, 167, 0.3);
+  transition: background-color 0.3s;
+}
+
+.home-login-button:hover {
+  background-color: #483e8e;
+}
