@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../Nav.module.css";
-import logoSrc from "../../../public/HCMUT.svg";
+import logoSrc from "/HCMUT.svg";
 
 const EmptyNav: React.FC = () => {
   return (
