@@ -1,0 +1,55 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.loading-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-text {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.content-container {
+    flex: 1;
+    padding: 2rem;
+    max-width: 64rem;
+    margin: 0 auto;
+}
+
+.user-card {
+    background-color: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+}
+
+.welcome-heading {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.role-text {
+    margin-bottom: 1rem;
+}
+
+.role-text strong {
+    font-weight: bold;
+}
+
+.section-heading {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 2rem 0 0.5rem 0;
+}
+
+.student-section {
+    margin-top: 1rem;
+}

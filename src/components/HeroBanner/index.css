@@ -1,0 +1,34 @@
+.hero-banner {
+    position: relative;
+    height: 500px;
+    background-size: cover;
+    background-position: center;  
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.hero-overlay {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #5d5a88;
+    opacity: 0.8;
+    color: white;
+    padding: 0 20px;
+    border-radius: 20px;
+    margin-bottom: 6rem;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+}
+
+.hero-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 0.5rem;
+}
