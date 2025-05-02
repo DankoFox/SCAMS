@@ -140,10 +140,9 @@ export default function RoomStudentPage() {
 							<td>{item.course_code}</td>
 							<td>{item.group_code}</td>
 							<td>
-								<span
-								>
-									{item.status}
-								</span>
+							<span className={`status-badge status-${item.status}`}>
+								{item.status}
+							</span>
 							</td>
 							<td>
 								<button
