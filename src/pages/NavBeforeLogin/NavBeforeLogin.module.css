@@ -1,0 +1,61 @@
+
+.container {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+  }
+  
+  .contentWrapper {
+    width: 100%;
+    max-width: 28rem;
+  }
+  
+  .logoContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .logo {
+    width: 8rem;
+    height: auto;
+  }
+  
+  .hr {
+    border: none; 
+    border-top: 1px solid #4b5563; 
+    margin: 0; 
+  }
+  
+  .hrTop {
+    margin-bottom: 2rem;
+  }
+  
+  .hrBottom {
+    margin-top: 2rem;
+  }
+  
+  
+  .button {
+    width: 100%;
+    background-color: #d1d5db;
+    border-radius: 9999px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    text-align: center;
+    color: black;
+    font-size: 1.125rem;
+    border: none;
+    cursor: pointer;
+    display: block; 
+  }
+  
+
+  
+  .secondButton {
+    margin-top: 2rem; /* Apply spacing between buttons */
+  }
+  
