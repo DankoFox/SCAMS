@@ -58,7 +58,7 @@ export default function Home() {
                     description: "Find your way to office and classroom or set schedules",
                     subDescription: "Ho Chi Minh City University of Technology has many buildings in a large area. Each building has meeting rooms and classrooms with qualified facilities.",
 					buttons: [
-                        { text: "View rooms", link: "/rooms" },
+                        { text: "View rooms", link: "/rooms-student" },
                         { text: "View map", link: "/map" },
                     ],
                 };
@@ -68,7 +68,7 @@ export default function Home() {
                     description: "Find your way to office and classrooms",
 					subDescription: "Ho Chi Minh City University of Technology has many buildings in a large area. Each building has meeting rooms and classrooms with qualified facilities.",
                     buttons: [
-                        { text: "View rooms", link: "/rooms" },
+                        { text: "View rooms", link: "/rooms-student" },
                         { text: "View map", link: "/map" },
                     ],
                 };

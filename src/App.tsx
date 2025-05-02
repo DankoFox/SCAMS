@@ -6,6 +6,7 @@ import CompleteProfile from "./pages/CompleteProfile";
 import UpdateProfile from "./pages/UpdateProfile";
 import BookingPage from "./pages/Booking";
 import UpdateBookingPage from "./pages/UpdataBooking";
+import RoomStudentPage from "./pages/RoomStudentSystem";
 
 function App() {
 	return (
@@ -20,6 +21,7 @@ function App() {
 					path="/bookings/:bookingId/edit"
 					element={<UpdateBookingPage />}
 				/>
+				<Route path="/rooms-student" element={<RoomStudentPage />} />
 			</Routes>
 		</BrowserRouter>
 	);
