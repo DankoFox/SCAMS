@@ -20,7 +20,7 @@ export default function Home() {
 			} = await supabase.auth.getSession();
 
 			if (!session) {
-				navigate("/login");
+				navigate("/redirect-login");
 				return;
 			}
 
@@ -32,7 +32,7 @@ export default function Home() {
 				.single();
 
 			if (error || !data) {
-				navigate("/login");
+				navigate("/landing-page");
 			} else if (!data.name) {
 				navigate("/complete-profile");
 			} else {

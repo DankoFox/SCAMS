@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap');
+
+/* === TỔNG THỂ === */
+.login-container {
+  display: flex;
+  min-height: calc(100vh - 200px); /* Trừ phần navbar nếu có */
+  background-color: #ffffff;
+  font-family: 'Mulish', sans-serif;
+}
+
+/* === BÊN TRÁI (chiếm 2/3) === */
+.login-left {
+  flex: 2; /* chiếm 2/3 */
+  display: flex;
+  flex-direction: column;
+  padding: 100px 40px 40px 100px;
+  background-color: #ffffff;
+}
+
+.login-left-header {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.login-left-header h1 {
+  font-size: 35px;
+  font-weight: bold;
+  color: #000;
+}
+
+/* Chia cột trái thành chữ & hình */
+.login-left-content {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+
+.login-left-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.login-left-text h2 {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 60px;
+  margin-top: 0;
+}
+
+.login-left-text p {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+
+.login-left-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 60px;
+}
+
+.login-image {
+  max-width: 100%;
+  height: auto;
+  margin-top: 0;
+}
+
+/* === BÊN PHẢI (chiếm 1/3) === */
+.login-right {
+  flex: 1; /* chiếm 1/3 */
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 100px 200px 40px 100px;
+}
+
+/* Tiêu đề */
+.login-right h3 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  align-self: flex-start;
+  position: relative;
+  padding-bottom: 6px;
+}
+
+.login-right h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #000;
+}
+
+/* Input */
+.login-input {
+  width: 90%;
+  min-height: 70px;
+  padding: 16px;
+  margin-top: 40px;
+  border-radius: 10px;
+  border: none;
+  background-color: #f2f0fc;
+  font-size: 16px;
+  color: #333;
+  outline: none;
+  box-sizing: border-box;
+  align-self: start;
+}
+
+/* Password input có icon */
+.password-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-icon {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #888;
+  font-size: 16px;
+}
+
+/* Link nhỏ */
+.forgot-text {
+  align-self: flex-end;
+  font-size: 14px;
+  color: #999;
+  margin-top: 10px;
+  margin-right: 50px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Nút login */
+.login-button {
+  margin-top: 40px;
+  width: 90%;
+  min-height: 70px;
+  padding: 16px;
+  background-color: #5c4b89;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 6px 20px rgba(92, 75, 137, 0.4);
+  cursor: pointer;
+  align-self: start;
+}
+
+.login-button:hover {
+  background-color: #4a3a76;
+}
+
+/* Lỗi */
+.error-text {
+  color: red;
+  margin-top: 10px;
+  font-size: 14px;
+}

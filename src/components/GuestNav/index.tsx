@@ -1,7 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import styles from "../Nav.module.css";
-import logoSrc from "../../../public/HCMUT.svg";
+import logoSrc from "/HCMUT.svg";
 
 const homeButton: React.CSSProperties = {
   paddingRight: "30px",
@@ -14,11 +15,9 @@ const TaskBar: React.FC = () => {
         <span className={styles.appName}>SCAMS</span>
       </div>
 
-      <div className={styles.rightSection}>
-        <a href="#Login" className={styles.navItem}>
-          <span style={homeButton}>Login</span>
-        </a>
-      </div>
+      <Link to="/redirect-login" className={styles.navItem}>
+        <span style={homeButton}>Login</span>
+      </Link>
     </nav>
   );
 };
