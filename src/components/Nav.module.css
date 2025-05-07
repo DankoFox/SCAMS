@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Andika:wght@400;700&display=swap');
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    border-bottom: 1px solid #dee2e6;
+    color: rgb(113, 110, 151);
+    font-family: 'Andika', sans-serif;
+    height: 100px;
+}
+
+.leftSection {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    width: 84px;
+    height: 84px;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    padding-bottom: 30px;
+    font-size: xx-large;
+}
+
+.appName {
+    font-weight: bold;
+    font-family: 'Andika', sans-serif;
+    font-size:xx-large;
+    color:#5D5A88;
+}
+
+.rightSection {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navItem,
+.navButton {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+    font-size: larger;
+}
+
+.navItem:hover,
+.navButton:hover {
+    background-color: #e9ecef;
+}
+
+.navButton {
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: larger;
+    margin-right: 10px;
+}
+
+.separator {
+    color: #adb5bd;
+    margin: 0 5px;
+    cursor: default;
+    user-select: none;
+}
+
+.notificationIcon {
+    padding-right: 20px;
+}
