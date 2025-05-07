@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 import { supabase } from "../supabaseClient";
 import { useNavigate } from "react-router-dom";
 
-
-
 export default function NavBar() {
 	const [name, setName] = useState<string | null>(null);
 	const navigate = useNavigate();
@@ -34,7 +32,7 @@ export default function NavBar() {
 
 	const handleLogout = async () => {
 		await supabase.auth.signOut();
-		navigate("/login");
+		navigate("/landing-page");
 	};
 
 	const handleEdit = () => {

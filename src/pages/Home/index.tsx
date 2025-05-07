@@ -23,7 +23,7 @@ export default function Home() {
 			if (!session) {
 				// fallback strategy: set guest first, but still redirect
 				setUserType("guest");
-				navigate("/redirect-login");
+				navigate("/landing-page");
 				return;
 			}
 
