@@ -8,6 +8,7 @@ import BookingPage from "./pages/Booking";
 import UpdateBookingPage from "./pages/UpdataBooking";
 import RedirectLogin from "./pages/RedirectLogin";
 import LandingPage from "./pages/LandingPage";
+import RoomStudentPage from "./pages/RoomStudentSystem"; // <-- merge this
 
 function App() {
 	return (
@@ -24,6 +25,8 @@ function App() {
 					path="/bookings/:bookingId/edit"
 					element={<UpdateBookingPage />}
 				/>
+				<Route path="/rooms-student" element={<RoomStudentPage />} />{" "}
+				{/* added */}
 			</Routes>
 		</BrowserRouter>
 	);
