@@ -9,6 +9,8 @@ import UpdateBookingPage from "./pages/UpdataBooking";
 import RedirectLogin from "./pages/RedirectLogin";
 import LandingPage from "./pages/LandingPage";
 import RoomStudentPage from "./pages/RoomStudentSystem"; // <-- merge this
+import NavigationBeforeLogin from "./pages/NavBeforeLogin"; // <-- merge this
+import SupportPage from "./pages/SupportPages"; // <-- merge this
 
 function App() {
 	return (
@@ -21,6 +23,8 @@ function App() {
 				<Route path="/complete-profile" element={<CompleteProfile />} />
 				<Route path="/update-profile" element={<UpdateProfile />} />
 				<Route path="/booking" element={<BookingPage />} />
+				<Route path="/support" element={<SupportPage />} />
+				<Route path="/nav-before-login" element={<NavigationBeforeLogin />} />
 				<Route
 					path="/bookings/:bookingId/edit"
 					element={<UpdateBookingPage />}

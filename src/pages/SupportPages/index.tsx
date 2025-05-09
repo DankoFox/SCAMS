@@ -1,3 +1,4 @@
+// đây là trang hỗ trợ người dùng
 import React from "react";
 import styles from "./index.module.css";
 import Img from "../../../public/support.svg";
@@ -13,7 +14,7 @@ const StudentSupport: React.FC = () => {
           <h1>
             Want to know more information?
             <br />
-            <strong>Have issue loging in?</strong>
+            <strong>Have issue logging in?</strong>
           </h1>
           <p>
             Send an email showing your request or issues to (including forgotten

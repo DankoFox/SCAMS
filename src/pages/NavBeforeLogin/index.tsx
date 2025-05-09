@@ -1,4 +1,4 @@
-// e:/Download/SCAMS/src/pages/NavBeforeLogin/index.tsx
+//Đây là trang điều hướng cho người dùng chưa đăng nhập
 import React from "react";
 import Img from "../../../public/HCMUT.svg";
 import styles from "./NavBeforeLogin.module.css"; // Import the CSS module
