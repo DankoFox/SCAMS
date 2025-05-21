@@ -3,6 +3,8 @@ import { supabase } from "../../supabaseClient";
 import { useNavigate } from "react-router-dom";
 import "./index.css";
 import BookingModal from "../../components/BookingModal";
+import Footer from "../../components/Footer";
+import NavBar from "../../components/NavBar";
 
 type RoomSchedule = {
 	booking_id: string;
@@ -123,6 +125,7 @@ export default function RoomStudentPage() {
 				minHeight: "100vh",
 			}}
 		>
+			<NavBar />
 			<h2>SCAMS &gt; ROMS</h2>
 
 			<div className="main-container">
@@ -281,6 +284,7 @@ export default function RoomStudentPage() {
 					fetchRoomSchedules(); // reload table data
 				}}
 			/>
+			<Footer />
 		</div>
 	);
 }
